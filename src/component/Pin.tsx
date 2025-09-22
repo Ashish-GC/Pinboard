@@ -1,4 +1,4 @@
-import { Marker, Popup, useMapEvents } from "react-leaflet";
+import { Marker, useMapEvents } from "react-leaflet";
 import { Icon } from "leaflet";
 import mapPinIcon from "../assets/MapPin.svg";
 import { useMapStore } from "../store/mapStore";
