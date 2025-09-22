@@ -20,11 +20,11 @@ function Pin() {
     <>
       {pinList.map((pin, index) => {
         return (
-          <Marker key={index} icon={markerIcon} position={pin.coordinates}>
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
+          <Marker
+            key={index}
+            icon={markerIcon}
+            position={pin.coordinates}
+          ></Marker>
         );
       })}
     </>
