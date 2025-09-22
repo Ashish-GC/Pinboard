@@ -9,7 +9,7 @@ function App() {
         <FiMap size={25}></FiMap>
         <h4 className="font-semibold text-2xl">Map Pinboard</h4>
       </section>
-      <section className="flex-[90%]">
+      <section className="relative flex-[90%]">
         <Map />
         <PinList />
       </section>

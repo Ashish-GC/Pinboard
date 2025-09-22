@@ -24,7 +24,7 @@ function PinList() {
       )}
 
       {isDialogOpen && (
-        <div className="absolute top-20 left-20 bg-white shadow-2xl p-6 h-[80%] w-[350px] border border-gray-300 z-[1000] text-black rounded-2xl overflow-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="absolute top-20 left-4  md:top-20 md:left-20 bg-white shadow-2xl p-6 h-[80%] w-[80%] md:w-[40%] lg:w-[30%] xl:w-[25%] 2xl:w-[20%]   border border-gray-300 z-[1000] text-black rounded-2xl overflow-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <div className="flex p-2 items-center justify-between mb-2 border-b border-gray-300">
             <p className="text-lg font-semibold">Pin Lists</p>
             <IoCloseSharp
