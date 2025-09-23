@@ -4,7 +4,7 @@ Map Pinboard is a **React-based interactive map application** that allows users 
 
 ---
 
-## Deployment : https://pinboard-4yiz-git-main-ashishs-projects-9f7801a5.vercel.app/
+## Deployment :  https://pinboard-git-main-ashishs-projects-9f7801a5.vercel.app/ 
 
 ---
 
