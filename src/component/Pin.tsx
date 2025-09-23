@@ -14,7 +14,9 @@ function Pin() {
   return (
     <>
       {pinList.map((pin, index) => {
-        return <CustomMarker key={index} pin={pin}></CustomMarker>;
+        return (
+          <CustomMarker key={index} index={index} pin={pin}></CustomMarker>
+        );
       })}
     </>
   );

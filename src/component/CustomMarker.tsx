@@ -3,8 +3,9 @@ import { Icon } from "leaflet";
 import mapPinIcon from "../assets/MapPin.svg";
 import { useMapStore, type PinT } from "../store/mapStore";
 import { useMemo, useRef } from "react";
+import { IoLocation } from "react-icons/io5";
 
-function CustomMarker({ pin }: { pin: PinT }) {
+function CustomMarker({ pin, index }: { pin: PinT; index: number }) {
   const markerRef = useRef<L.Marker>(null);
   const { updateDragedPinFromList } = useMapStore();
   const markerIcon = new Icon({
@@ -36,7 +37,15 @@ function CustomMarker({ pin }: { pin: PinT }) {
       position={pin.coordinates}
       title={pin.dms}
     >
-      <Popup>{pin.dms}</Popup>
+      <Popup>
+        <div className="flex flex-col gap-1">
+          <div className="text-base font-bold">Pin #{index + 1}</div>
+          <div className=" text-gray-500 flex gap-1 items-center">
+            <IoLocation size={12} color="gray" />
+            <span className="text-xs">{pin.dms}</span>
+          </div>
+        </div>
+      </Popup>
     </Marker>
   );
 }
