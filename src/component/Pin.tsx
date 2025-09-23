@@ -1,7 +1,6 @@
-import { Marker, useMapEvents } from "react-leaflet";
-import { Icon } from "leaflet";
-import mapPinIcon from "../assets/MapPin.svg";
+import { useMapEvents } from "react-leaflet";
 import { useMapStore } from "../store/mapStore";
+import CustomMarker from "./CustomMarker";
 
 function Pin() {
   const { pinList, setCurrentPin } = useMapStore();
@@ -11,21 +10,11 @@ function Pin() {
       setCurrentPin([lat, lng]);
     },
   });
-  const markerIcon = new Icon({
-    iconUrl: mapPinIcon,
-    iconSize: [38, 38],
-  });
 
   return (
     <>
       {pinList.map((pin, index) => {
-        return (
-          <Marker
-            key={index}
-            icon={markerIcon}
-            position={pin.coordinates}
-          ></Marker>
-        );
+        return <CustomMarker key={index} pin={pin}></CustomMarker>;
       })}
     </>
   );
