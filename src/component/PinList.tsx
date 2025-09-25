@@ -28,6 +28,10 @@ function PinList() {
           {pinList.map((pin, index) => (
             <li
               tabIndex={index}
+              onMouseEnter={() => useMapStore.setState({ selectedPin: pin })}
+              onMouseLeave={() => {
+                useMapStore.setState({ selectedPin: null });
+              }}
               key={index}
               className="focus:border-2 focus:border-blue-500 px-5 cursor-pointer hover:bg-gray-100 flex items-center justify-between border-b last:border-b-0 border-gray-200 py-4"
             >

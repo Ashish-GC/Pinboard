@@ -9,9 +9,15 @@ export interface PinT {
   dms: string;
   showPopup: boolean;
 }
+export interface userT {
+  id: string;
+  email: string;
+}
 
 interface MapStore {
   currentPin: PinT | null;
+  user: userT | null;
+  selectedPin: PinT | null;
   pinList: PinT[];
   isPinListVisible: boolean;
   togglePinListDisplay: () => void;
@@ -26,6 +32,8 @@ export const useMapStore = create<MapStore>()(
   persist(
     (set, get) => ({
       currentPin: null,
+      user: null,
+      selectedPin: null,
       pinList: [],
       isPinListVisible: true,
       togglePinListDisplay: () => {
@@ -71,6 +79,7 @@ export const useMapStore = create<MapStore>()(
         }));
       },
     }),
+
     {
       name: "pinLists-storage",
       storage: createJSONStorage(() => localStorage),
