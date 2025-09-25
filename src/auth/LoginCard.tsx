@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FiMap } from "react-icons/fi";
 import { AuthService } from "../service/authService";
 import { z, ZodError } from "zod";
-import { Info, Mail, Lock, EyeOff, Eye, Loader2 } from "lucide-react";
+import { Mail, Lock, EyeOff, Eye, Loader2 } from "lucide-react";
 import { useMapStore } from "../store/mapStore";
 
 const loginSchema = z.object({
@@ -10,8 +10,8 @@ const loginSchema = z.object({
     .string()
     .trim()
     .nonempty("Email field is required")
-    .email("Invalid email"),
-  password: z.string().trim().nonempty("Password field is required"),
+    .email("Please enter a valid email address"),
+  password: z.string().trim().nonempty("Incorrect password, please try again"),
 });
 
 const registerSchema = z.object({
@@ -19,19 +19,12 @@ const registerSchema = z.object({
     .string()
     .trim()
     .nonempty("Email field is required")
-    .email("Invalid email"),
+    .email("Please enter a valid email address"),
   password: z
     .string()
     .trim()
     .nonempty("Password field is required")
-    .min(
-      6,
-      "Password must be at least 6 characters and include a uppercase, lowercase, number, and special character."
-    )
-    .regex(
-      /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])/,
-      "Password must be at least 6 characters and include a uppercase, lowercase, number, and special character."
-    ),
+    .min(6, "password must be at least 6 characters"),
 });
 
 export default function LoginCard() {
@@ -90,7 +83,7 @@ export default function LoginCard() {
 
   return (
     <div className="flex items-center justify-center min-h-screen min-w-screen ">
-      <div className="w-full max-w-sm bg-white rounded-2xl shadow-lg p-8 flex flex-col gap-10">
+      <div className="w-full max-w-xs md:max-w-sm bg-white rounded-2xl shadow-lg p-8 flex flex-col gap-10">
         {/* Header */}
         <div className="flex items-center justify-center  gap-3">
           <FiMap size={15} />
@@ -139,7 +132,6 @@ export default function LoginCard() {
             </div>
             {emailError && (
               <p className=" text-red-700 text-sm flex gap-1 m-2 items-center">
-                <Info color="red" size={16} strokeWidth="2.5" />
                 {emailError}
               </p>
             )}
@@ -180,7 +172,6 @@ export default function LoginCard() {
             </div>
             {passwordError && (
               <p className=" text-red-700 text-sm flex gap-1 m-2 items-center">
-                <Info color="red" size={16} strokeWidth="2.5" />
                 {passwordError}
               </p>
             )}

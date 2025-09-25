@@ -52,10 +52,10 @@ function App() {
     <>
       {!isLoading && !session && <LoginCard />}
       {session && (
-        <div className="w-screen h-screen flex flex-col">
+        <div className="w-screen h-screen flex flex-col relative">
           <section
             onClick={togglePinListDisplay}
-            className="cursor-pointer  flex-[10%] w-full p-3 flex  justify-between items-center bg-white text-black"
+            className="cursor-pointer  flex-[5%] lg:flex-[10%] w-full p-3 flex  justify-between items-center bg-white text-black sticky"
           >
             <div className="flex gap-2 justify-center items-center w-full">
               <FiMap size={25}></FiMap>
@@ -67,7 +67,7 @@ function App() {
               color="gray"
             />
           </section>
-          <section className="relative flex-[90%] h-full">
+          <section className="relative flex-auto h-full">
             <Map />
             <PinList />
           </section>

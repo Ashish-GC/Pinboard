@@ -8,12 +8,12 @@ function PinList() {
 
   return (
     isPinListVisible && (
-      <div className="absolute top-100 left-0 md:top-158 lg:top-4 lg:left-4 bg-white shadow-2xl  h-[60%] lg:h-[95%] w-[100%] lg:w-[30%] xl:w-[25%] 2xl:w-[22%]   border border-gray-300 z-[1000] text-black rounded-xl overflow-hidden">
+      <div className="absolute top-135 left-0 md:top-158 lg:top-4 lg:left-4 bg-white shadow-2xl  h-[100%] lg:h-[95%] w-[100%] lg:w-[30%] xl:w-[25%] 2xl:w-[22%]   border border-gray-300 z-[1000] text-black rounded-xl overflow-hidden">
         <div className="flex p-5 items-center justify-between  border-b border-gray-300 sticky">
           <p className="text-lg font-semibold">Pin Lists</p>
         </div>
 
-        <ul className="p-[0.2] h-[90%]  mb-3 overflow-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <ul className="p-[0.2] h-[90%] overflow-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {pinList.length === 0 && (
             <div className=" mt-6  flex flex-col justify-center items-center gap-1">
               <CiSearch size={28} color="gray" />
@@ -60,6 +60,7 @@ function PinList() {
               </div>
             </li>
           ))}
+          <li className="mb-5"></li>
         </ul>
       </div>
     )
