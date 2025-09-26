@@ -83,7 +83,7 @@ export default function LoginCard() {
 
   return (
     <div className="flex items-center justify-center min-h-screen min-w-screen ">
-      <div className="w-full max-w-xs md:max-w-sm bg-white rounded-2xl shadow-lg p-8 flex flex-col gap-10">
+      <div className="w-full max-w-xs md:max-w-sm bg-white rounded-2xl shadow-lg p-8 flex flex-col gap-5 md:gap-10">
         {/* Header */}
         <div className="flex items-center justify-center  gap-3">
           <FiMap size={15} />

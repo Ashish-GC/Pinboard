@@ -1,7 +1,6 @@
 import Map from "./component/Map";
 import PinList from "./component/PinList";
 import { FiMap } from "react-icons/fi";
-import { useMapStore } from "./store/mapStore";
 import { useState, useEffect } from "react";
 import type { Session, Subscription } from "@supabase/supabase-js";
 import { supabase } from "./utils/supabase";
@@ -10,7 +9,6 @@ import { LogOut } from "lucide-react";
 import { AuthService } from "./service/authService";
 
 function App() {
-  const { togglePinListDisplay } = useMapStore();
   const [session, setSession] = useState<Session | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -53,10 +51,7 @@ function App() {
       {!isLoading && !session && <LoginCard />}
       {session && (
         <div className="w-screen h-screen flex flex-col relative">
-          <section
-            onClick={togglePinListDisplay}
-            className="cursor-pointer  flex-[5%] lg:flex-[10%] w-full p-3 flex  justify-between items-center bg-white text-black sticky"
-          >
+          <section className="cursor-pointer  flex-[5%] lg:flex-[10%] w-full p-3 flex  justify-between items-center bg-white text-black sticky">
             <div className="flex gap-2 justify-center items-center w-full">
               <FiMap size={25}></FiMap>
               <h4 className="font-semibold text-2xl">Map Pinboard</h4>
